@@ -2,5 +2,8 @@ source "https://rubygems.org"
 
 gem "sinatra"
 gem "thin"
-gem "cucumber-sinatra"
-gem "capybara"
+
+group :test do
+   gem "cucumber-sinatra"
+   gem "capybara"
+end

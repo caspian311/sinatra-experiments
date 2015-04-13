@@ -2,20 +2,19 @@
 
 ENV['RACK_ENV'] = 'test'
 
-require File.join(File.dirname(__FILE__), '..', '..', 'lib/my_app.rb')
 
 require 'capybara'
 require 'capybara/cucumber'
 require 'rspec'
 
-Capybara.app = MyApp
+Capybara.app, _ = Rack::Builder.parse_file(File.expand_path('../../../config.ru', __FILE__))
 
-class MyAppWorld
-  include Capybara::DSL
-  include RSpec::Expectations
-  include RSpec::Matchers
-end
-
-World do
-  MyAppWorld.new
-end
+#class MyAppWorld
+#  include Capybara::DSL
+#  include RSpec::Expectations
+#  include RSpec::Matchers
+#end
+#
+#World do
+#  MyAppWorld.new
+#end
