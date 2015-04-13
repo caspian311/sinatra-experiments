@@ -5,9 +5,9 @@ This is my attempt at doing some TDD/BDD with Ruby again. Just a few examples he
 To run the app:
 
     $ bundle install
-    $ bundle exec thin -R config.ru start -p 3000
+    $ bundle exec thin -R config.ru start
 
 To run the tests:
 
-    $ cucumber
+    $ bundle exec cucumber
 
