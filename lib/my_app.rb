@@ -1,10 +1,6 @@
-require 'rubygems'
-require 'sinatra/base'
-require 'message'
+require File.expand_path(File.join(File.dirname(__FILE__), './message'))
 
-class MyApp < Sinatra::Base
-   get '/' do
-      Message.new.greeting
-   end
+get '/' do
+   Message.new.greeting
 end
 
