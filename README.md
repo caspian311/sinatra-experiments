@@ -9,5 +9,6 @@ To run the app:
 
 To run the tests:
 
+    $ bundle exec rspec
     $ bundle exec cucumber
 
