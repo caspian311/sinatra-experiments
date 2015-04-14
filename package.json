@@ -1,0 +1,22 @@
+{
+  "name": "sinatra-experiments",
+  "version": "1.0.0",
+  "description": "This is my attempt at doing some TDD/BDD with Ruby again. Just a few examples here and there about doing server-side Ruby. Using branches for the different experiments.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/caspian311/sinatra-experiments.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/caspian311/sinatra-experiments/issues"
+  },
+  "homepage": "https://github.com/caspian311/sinatra-experiments",
+  "dependencies": {
+    "react-tools": "^0.13.1"
+  }
+}
