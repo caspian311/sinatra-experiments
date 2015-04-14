@@ -1,5 +1,5 @@
 class Message
-   def greeting
+   def self.greeting
       'Hello world!'
    end
 end
