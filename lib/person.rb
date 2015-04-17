@@ -1,12 +1,28 @@
 
 class Person
-   attr_reader :name
+   @@people = []
 
-   def initialize(name)
-      @name = name
+   attr_reader :name
+   attr_reader :id
+
+   def initialize(options)
+      @id = options[:id]
+      @name = options[:name]
    end
 
    def self.find(id)
-      Person.new 'Matt'
+      @@people.select { |person| person.id == id }.first
+   end
+
+   def self.deleteAll
+      @@people.clear
+   end
+
+   def self.all
+      @@people
+   end
+
+   def save
+      @@people << self
    end
 end
