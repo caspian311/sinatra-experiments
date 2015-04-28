@@ -38,8 +38,6 @@ describe Person do
    describe '#all' do
       before do
          Person.deleteAll
-         Person.new(:id => 456, :name => 'Caleb').save
-         Person.new(:id => 456, :name => 'Caleb').save
       end
 
       after do
@@ -47,6 +45,9 @@ describe Person do
       end
 
       it 'should return all people' do
+         Person.new(:id => 456, :name => 'Caleb').save
+         Person.new(:id => 456, :name => 'Caleb').save
+
          count = Person.all.count
 
          expect(count).to eq 2

@@ -14,10 +14,8 @@ get '/services/person' do
 end
 
 post '/services/person' do
-   request.body.rewind
-   data = JSON.parse(request.body.read)
-   id = data['id']
-   name = data['name']
+   id = params[:id]
+   name = params[:name]
    Person.new(:id => id, :name => name ).save
    201
 end

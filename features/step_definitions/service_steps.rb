@@ -4,7 +4,7 @@ When /^I go to the (.*) endpoint$/ do |endpoint|
 end
 
 Given /^I have a person with id (\d+) and name (.+)$/ do |id, name|
-   post '/services/person', "{ 'id': #{id}, 'name': '#{name}' }"
+   post '/services/person', { :id => id, :name => name }
 end
 
 Then /^I should see the correct message$/ do 
