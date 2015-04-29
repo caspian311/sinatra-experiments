@@ -1,7 +1,7 @@
 
 class Person
    @@people = []
-
+   
    attr_reader :name
    attr_reader :id
 
@@ -24,5 +24,9 @@ class Person
 
    def save
       @@people << self
+   end
+
+   def to_json
+      { :id => @id, :name => @name }.to_json
    end
 end

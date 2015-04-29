@@ -1,4 +1,5 @@
 require 'person'
+require 'json'
 
 describe Person do 
    describe '#find' do
@@ -51,6 +52,15 @@ describe Person do
          count = Person.all.count
 
          expect(count).to eq 2
+      end
+   end
+
+   describe '#to_json' do
+      it 'should return back valid json' do
+         json = Person.new(:id => 123, :name => 'Matt').to_json.gsub /\s/, ''
+
+         expected_json = '{ "id": 123, "name": "Matt" }'.gsub /\s/, ''
+         expect(json).to eq expected_json
       end
    end
 end

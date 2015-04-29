@@ -5,9 +5,9 @@ require 'sinatra/json'
 require File.expand_path(File.join(File.dirname(__FILE__), 'person'))
 
 get '/services/person/:id' do
+   content_type :json
    id = Integer(params[:id])
-   person = Person.find(id)
-   "{ \"id\": #{person.id}, \"name\": \"#{person.name}\" }"
+   Person.find(id).to_json
 end
 
 get '/services/person' do
