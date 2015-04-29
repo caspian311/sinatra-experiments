@@ -11,6 +11,7 @@ var Greeting = React.createClass({
       }.bind(this));
    },
    render: function() {
+      console.log(this.state);
       return ( <h1>Hello, { this.state.name }!</h1>);
    }
 });

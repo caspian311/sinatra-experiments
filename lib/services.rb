@@ -6,7 +6,8 @@ require File.expand_path(File.join(File.dirname(__FILE__), 'person'))
 
 get '/services/person/:id' do
    id = Integer(params[:id])
-   json Person.find(id)
+   person = Person.find(id)
+   "{ \"id\": #{person.id}, \"name\": \"#{person.name}\" }"
 end
 
 get '/services/person' do
@@ -14,8 +15,17 @@ get '/services/person' do
 end
 
 post '/services/person' do
-   id = params[:id]
-   name = params[:name]
-   Person.new(:id => id, :name => name ).save
-   201
+   begin
+      request.body.rewind
+      data = JSON.parse(request.body.read)
+      id = data["id"]
+      name = data["name"]
+      Person.new(:id => id, :name => name ).save
+      puts "created person: #{id}:#{name}"
+      201
+   rescue Exception => e
+      puts ">>>>>>>>>>>>>>>>>>>>"
+      puts e
+      500
+   end
 end

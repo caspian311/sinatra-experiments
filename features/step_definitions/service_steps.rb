@@ -1,10 +1,15 @@
 
 When /^I go to the (.*) endpoint$/ do |endpoint|
-   visit endpoint
+   header 'Accept', 'application/json'
+   get endpoint
+   expect(last_response.status).to be 200
 end
 
 Given /^I have a person with id (\d+) and name (.+)$/ do |id, name|
-   post '/services/person', { :id => id, :name => name }
+   header 'Accept', 'application/json'
+   header 'Content-Type', 'application/json'
+   post '/services/person', "{ \"id\": #{id}, \"name\": \"#{name}\" }"
+   expect(last_response.status).to be 201
 end
 
 Then /^I should see the correct message$/ do 
@@ -14,7 +19,7 @@ Then /^I should see the correct message$/ do
 end
 
 Then /^I should see the person data$/ do
-   expected_json = '{ "name": "Matt" }'
+   expected_json = '{ "id": 123, "name": "Matt" }'
 
    verify_json expected_json
 end
@@ -22,7 +27,7 @@ end
 def verify_json(expected_json)
    require 'json'
    expected = JSON.parse(expected_json)
-   actual = JSON.parse(page.body)
+   actual = JSON.parse(last_response.body)
    expect(expected).to eq actual
 end
 

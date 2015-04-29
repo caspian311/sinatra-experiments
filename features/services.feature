@@ -1,4 +1,3 @@
-@wip
 Feature: services
    For the REST service that return back JSON.
 

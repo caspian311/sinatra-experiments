@@ -9,5 +9,6 @@ group :test do
    gem "cucumber-sinatra"
    gem "rspec"
    gem "capybara"
+   gem "capybara-json"
    gem "selenium-webdriver"
 end
