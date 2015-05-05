@@ -13,4 +13,6 @@ To run the tests:
     $ bundle exec cucumber
 
 Build the REACT stuffs:
+
     $ ./node_modules/.bin/jsx js/src/ public/js/
+
