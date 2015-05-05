@@ -1,6 +1,7 @@
-require File.expand_path(File.join(File.dirname(__FILE__), 'message'))
+require File.expand_path(File.join(File.dirname(__FILE__), 'services.rb'))
 
 get '/' do
-   Message.new.greeting
+   redirect '/index.html'
 end
+
 
